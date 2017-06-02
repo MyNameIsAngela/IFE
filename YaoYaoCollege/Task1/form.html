@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>task1-表单（一）单个表单项的检验</title>
+	<script>
+	
+</script>
+</head>
+<body>
+	<form  id = "task1" method="post" name="task">
+		名称
+		<input type="text" id="settingLength" > 
+		<input type="button" value="验证" onclick="check();">
+		<br />
+		必填，长度为4～16个字符
+	</form>
+	<form>
+		<br>
+		名称
+		<input type="text" name="notNull"> 
+		<input type="submit" value="验证">
+		<br />
+		姓名不能为空
+		<br>
+		名称
+		<input type="text" name="correctFormat"> 
+		<input type="submit" value="验证" onclick="check()">
+		<br />
+		名称格式正确
+		<br>
+	</form>
+	<script type="text/javascript" src="check.js"></script>
+</body>
+</html>
