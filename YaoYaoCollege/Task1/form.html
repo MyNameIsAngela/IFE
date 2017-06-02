@@ -1,33 +1,44 @@
 <!DOCTYPE html>
+
+<!-- 
+耀耀学院    任务一：表单（一）单个表单项的检验
+
+任务描述
+如示例图中所示，在页面中实现一个输入框与按钮，要求点击验证按钮后，对输入框中内容进行格式校验，并在其下方显示校验结果
+校验规则：
+1.字符数为4~16位
+2.每个英文字母、数字、英文符号长度为1
+3.每个汉字，中文符号长度为2 
+-->
+
 <html>
 <head>
 	<title>task1-表单（一）单个表单项的检验</title>
-	<script>
-	
-</script>
-</head>
+
+	<!--  导入css方法1   此处采用方法1
+	使用链接式引入外部CSS文件 
+	使用HTML的标记引入外部CSS文件。 在加载页面主体部分之前加载CSS文件，这样显示出来的网页从一开始就是带有样式效果的。
+	<link href="~/Content/Base.css" rel="stylesheet" type="text/css" /> 
+	-->
+	<link href="style.css" rel="stylesheet" type="text/css" /></head>
+
+	<!--   导入css方法2
+	使用导入式引入CSS文件
+	使用CSS的规则引入外部CSS文件。 在整个页面加载完成后再加载CSS文件。   
+	<style type="text/css">@import "/Content/Base.css"</style> 
+	-->
+	<!-- <style type="text/css">
+    	@import "style.css"
+	</style> -->
+
 <body>
 	<form  id = "task1" method="post" name="task">
 		名称
-		<input type="text" id="settingLength" > 
-		<input type="button" value="验证" onclick="check();">
+		<input type="text" id="check" > 
+		<input type="button" id="btn" value="验证" onclick="varify()"> 
+		<!-- 按了验证按钮后，跳到check（）函数中 -->
 		<br />
-		必填，长度为4～16个字符
-	</form>
-	<form>
-		<br>
-		名称
-		<input type="text" name="notNull"> 
-		<input type="submit" value="验证">
-		<br />
-		姓名不能为空
-		<br>
-		名称
-		<input type="text" name="correctFormat"> 
-		<input type="submit" value="验证" onclick="check()">
-		<br />
-		名称格式正确
-		<br>
+		<div id="message">必填，长度为4～16个字符</div>
 	</form>
 	<script type="text/javascript" src="check.js"></script>
 </body>
