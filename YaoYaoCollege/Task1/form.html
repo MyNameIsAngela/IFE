@@ -20,7 +20,7 @@
 	使用HTML的标记引入外部CSS文件。 在加载页面主体部分之前加载CSS文件，这样显示出来的网页从一开始就是带有样式效果的。
 	<link href="~/Content/Base.css" rel="stylesheet" type="text/css" /> 
 	-->
-	<link href="style.css" rel="stylesheet" type="text/css" /></head>
+	<!-- <link href="style.css" rel="stylesheet" type="text/css" /></head> -->
 
 	<!--   导入css方法2
 	使用导入式引入CSS文件
@@ -30,12 +30,46 @@
 	<!-- <style type="text/css">
     	@import "style.css"
 	</style> -->
+	<style type="text/css">
+		
+
+		.task1 {
+			/*font-family: "微软雅黑";*/
+			width: 500px;
+			margin: 100px auto;
+		}
+		
+		.check {
+			width: 250px;
+			height: 30px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin: 0 20px;
+		}
+		
+		.btn {
+			width: 100px;
+			height: 35px;
+			background: #56AFEC;
+			border: 2px solid #ccc;
+			border-radius: 5px;
+			color: #fff;
+			font-size: 20px;
+			cursor: pointer;
+		}
+		
+		.message {
+			margin-left: 60px;
+			margin-top: 10px;
+			color: #aaa;
+		}
+	</style>
 
 <body>
 	<form  id = "task1" method="post" name="task">
 		名称
 		<input type="text" id="check" > 
-		<input type="button" id="btn" value="验证" onclick="varify()"> 
+		<input type="button" id="btn" value="验证" onclick="varify();"> 
 		<!-- 按了验证按钮后，跳到check（）函数中 -->
 		<br />
 		<div id="message">必填，长度为4～16个字符</div>

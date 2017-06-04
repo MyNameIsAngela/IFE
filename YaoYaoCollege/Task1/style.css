@@ -1,1 +1,32 @@
-form{width:600px;height: 200px;position: relative;margin:100px auto;}
+
+
+		form {
+			font-family: "微软雅黑";
+			width: 500px;
+			margin: 100px auto;
+		}
+		
+		.check {
+			width: 250px;
+			height: 30px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin: 0 20px;
+		}
+		
+		.btn {
+			width: 100px;
+			height: 35px;
+			background: #56AFEC;
+			border: 2px solid #ccc;
+			border-radius: 5px;
+			color: #fff;
+			font-size: 20px;
+			cursor: pointer;
+		}
+		
+		.message {
+			margin-left: 60px;
+			margin-top: 10px;
+			color: #aaa;
+		}
