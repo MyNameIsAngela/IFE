@@ -1,16 +1,16 @@
 
 
 function varify(){	
-	var check = document.getElementById("check");
+	var check = document.getElementById("text");
 	var message = document.getElementById("message");
 	
 	// 判断输入内容是否为空
 	if(check.value ==""){
-		check.style.border="2px solid red";
-		check.style.color="red";
+		text.style.border="2px solid red";
+		message.style.color="red";
 		message.innerHTML="姓名不能为空";
 	}else{
-		test(check.value);
+		test(text.value);
 	};
 }
 
@@ -25,8 +25,9 @@ function test(strLen){
 		var cn=excn.exec(strLen);
 		var en=exen.exec(strLen);
 
-		//console.log(cn);
-		//console.log(en);  输入abcde123 en输出 ["abcde123", index: 0, input: "abcde123+"]
+		console.log(cn);
+		console.log(en);  
+		//输入abcde123 en输出 ["abcde123", index: 0, input: "abcde123+"]
 		if(cn==null){
 			cn="";
 		};
@@ -37,16 +38,12 @@ function test(strLen){
 
 		var len=cn.toString().length*2+en.toString().length;
 		if(len>3&&len<17){
-			check.style.border="2px solid #90EE90";
-			message.style.color="#90EE90";
+			text.style.border="2px solid #90EE90";
+			message.style.color="green";
 			message.innerHTML="名称格式正确";
 		}else{
-			check.style.border="2px solid red";
-			message.style.color="red";
+			text.style.border="2px solid grey";
+			message.style.color="grey";
 			message.innerHTML="长度为4~16个字符";
 		};
 }
-
-	// console.log(check);
-	// document.getElementById("con").innerHTML="hello world11";
-	// document.write("必填，长度为4～16个字符");
