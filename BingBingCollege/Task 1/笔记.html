@@ -1,0 +1,28 @@
+HTML中为button绑定事件的三种方式
+
+例如以下标签：
+<button type="submit" id="btn_submit"> submit </button>
+
+一、使用jQuery进行绑定
+$('#btn_submit').click(function(){......});
+
+二、使用原生js绑定
+<script>
+	document.getElementById("#btn_submit").addEventListener(‘click’, function(){.......}, false);
+</script>
+
+三、直接在button标签中使用onclick绑定
+<button type="submit" id="btn_submit" onclick="btnAction()"> submit </button>
+
+<script>
+        function btnAction() //在<script>标签中定义btnAtion的方法
+        { }
+</script>
+
+
+比较：
+1、使用jquery绑定 : (代码简洁，使用方便，容易维护)  事件绑定方式为追加绑定，即绑定多少个方法就执行多少个方法。
+
+2、使用原生js : 代码量稍大，事件绑定方式为复写绑定，即,绑定多个只保留最后一个绑定的方法。   原生js，这是真正的熟练者的工具，如果能写明白更好。
+
+3、使用onclick标签绑定 : 代码量不大，不易于维护 （因为html前端和js前端混在一起） 可作为临时调试， 正式成品中不建议出现。
