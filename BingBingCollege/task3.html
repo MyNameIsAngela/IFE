@@ -50,7 +50,7 @@
 
   	for(var i = 0; i < source.length; i++){ //得到 li 元素， 此时 source.length 为 7 
   		var cont = source[i].textContent; // 获取内容为  北京空气质量：90
-  		data[i] = [cont.substr(0,2), cont.substr(cont.indexOf("：")+1)]; // data[i] 格式为 [“北京"，90]
+  		data[i] = [cont.substr(0,2), cont.substr(cont.indexOf("：")+1)]; // data[i] 格式为 [“北京”，90]
   	}
 
   	return data;
