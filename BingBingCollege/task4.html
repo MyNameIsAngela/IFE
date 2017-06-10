@@ -2,7 +2,13 @@
 <html>
 <head>
 	<title>任务四：基础JavaScript练习（一）</title>
-	<!-- 任务描述
+	<!-- 
+	任务目的
+	学习与实践JavaScript的基本语法、语言特性
+	初步了解JavaScript的事件是什么
+	初步了解JavaScript中的DOM是什么
+	
+	任务描述
 	如图，模拟一个队列，队列的每个元素是一个数字，初始队列为空
 	有一个input输入框，以及4个操作按钮
 
@@ -11,9 +17,39 @@
 	点击"左侧出"，读取并删除队列左侧第一个元素，并弹窗显示元素中数值；
 	点击"右侧出"，读取并删除队列又侧第一个元素，并弹窗显示元素中数值；
 	点击队列中任何一个元素，则该元素会被从队列中删除 -->
+	<style type="text/css">
+		#block1{
+			color: white;
+			background-color: red;
+			border: none;
+			height: 100px;
+			width: 30px;
+			background-color: blue;
+
+		}
+		#block{
+			color: white;
+			background-color: red;
+			border: none;
+			height: 100px;
+			width: 30px;
+			background-color: blue;
+			left: 10px;
+			border: 2px;
+			border-left: 20px;
+		}
+
+		.block{
+			color: white;
+			background-color: red;
+			border: none;
+			height: 100px;
+			width: 30px;
+			background-color: blue;
+		}
+	</style>
 </head>
 <body>
-	
 	<div>
 		<input type="text" id="data" name="data" >
 		<button id="left-in" name="left-in">左侧入</button>
@@ -22,10 +58,26 @@
 		<button id="right-out" name="right-out">右侧出</button>	
 	</div>
 	<div id="show">
+		<input type="text" id="block1" value="12" ="" disabled>
 	</div>
 	
 
 	<script type="text/javascript">
+
+		function showStyle() { //调样式中，未完成
+			var node = document.getElementById("block1");
+			console.log(node);
+			console.log(node.style);
+			console.log(node.style.height + "~~" + node.value);
+			node.style.height = node.value;
+			console.log("1");
+			console.log(node.style.height + "~~" + node.value);
+
+			var atr=document.createAttribute("class");
+			atr.nodeValue="democlass";
+			var h=document.getElementsByTagName("H1")[0];
+			h.setAttributeNode(atr); 
+		}
 
 		function operateIn(dir){ //入操作
 			var data = document.getElementById("data");
@@ -34,6 +86,13 @@
 			var newValue = document.createAttribute("value"); //创建新的属性 value = 用户输入值
 			newValue.nodeValue = data.value;
 			newNode.attributes.setNamedItem(newValue);
+
+			var newClass = document.createAttribute("id");
+			var temp = "block";
+			newClass.nodeValue = temp;
+			//newClass.nodeValue = "a";  //????为什么这个形式就设定不了，非要特意申请变量来设置
+			newNode.setAttributeNode(newClass); 
+
 			var newDisabled = document.createAttribute("disabled"); //将input文本框设为 用户不可更改项
 			newNode.attributes.setNamedItem(newDisabled);
 
@@ -43,9 +102,8 @@
 			else if(dir == "right")
 				show.appendChild(newNode);
 
+			showStyle();
 			data.value = ""; //将用户输入框置空，方便下次输入
-
-
 		}
 
 		function operateOut(dir){
