@@ -22,17 +22,17 @@
 		<button id="right-out" name="right-out">右侧出</button>	
 	</div>
 	<div id="show">
-		<input type="text" value="12" disabled>
 	</div>
 	
 
 	<script type="text/javascript">
 
-		function operateIn(newData,dir){ //入操作
+		function operateIn(dir){ //入操作
+			var data = document.getElementById("data");
 
 			var newNode = document.createElement("input"); //创建新的节点 input，默认类型为text，所以不设置 <input disabled value="用户输入值">
 			var newValue = document.createAttribute("value"); //创建新的属性 value = 用户输入值
-			newValue.nodeValue = newData.value;
+			newValue.nodeValue = data.value;
 			newNode.attributes.setNamedItem(newValue);
 			var newDisabled = document.createAttribute("disabled"); //将input文本框设为 用户不可更改项
 			newNode.attributes.setNamedItem(newDisabled);
@@ -43,28 +43,51 @@
 			else if(dir == "right")
 				show.appendChild(newNode);
 
+			data.value = ""; //将用户输入框置空，方便下次输入
+
+
 		}
 
+		function operateOut(dir){
+			var show = document.getElementById("show");
+			var showChildLeghth = show.childNodes.length; //获取 id="show" 的 div 元素下所有孩子节点的length
+			
+			if(showChildLeghth > 1){ //删除必须在 div 中还有子节点的情况下
+				if(dir == "left"){
+					//console.log(show.childNodes[0].value);
+					show.removeChild(show.childNodes[0]);	
+				}
+				else if(dir == "right"){
+					var lastCount = showChildLeghth - 2; //根据 length 找到最末尾的 input 元素
+					//console.log(show.childNodes[lastCount].value);
+					show.removeChild(show.childNodes[lastCount]);
+				}
+			}
+			else
+				alert("无可删除节点");
+		}
 
 		function init(){
 			var direction; //操作方向
-			var data = document.getElementById("data");
+			
 			//console.log(data);
 
 			document.getElementById("left-in").addEventListener('click',function(){
 				direction = "left";
-				operateIn(data,direction);
+				operateIn(direction);
 			},false);
 			document.getElementById("right-in").addEventListener('click',function(){
 				direction = "right";
-				operateIn(data,direction);
+				operateIn(direction);
 			},false);
-			// document.getElementById("left-out").addEventListener('click',function(){
-
-			// },false);
-			// document.getElementById("right-out").addEventListener('click',function(){
-
-			// },false);
+			document.getElementById("left-out").addEventListener('click',function(){
+				direction = "left";
+				operateOut(direction);
+			},false);
+			document.getElementById("right-out").addEventListener('click',function(){
+				direction = "right";
+				operateOut(direction);
+			},false);
 		}
 		init();
 	</script>
