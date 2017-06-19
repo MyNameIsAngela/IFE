@@ -18,34 +18,14 @@
 	点击"右侧出"，读取并删除队列又侧第一个元素，并弹窗显示元素中数值；
 	点击队列中任何一个元素，则该元素会被从队列中删除 -->
 	<style type="text/css">
-		#block1{
-			color: white;
-			background-color: red;
-			border: none;
-			height: 100px;
-			width: 30px;
-			background-color: blue;
-
-		}
 		#block{
 			color: white;
 			background-color: red;
+			height: 30px;
+			width:30px;
+			text-align: center; /*让数字居中*/
 			border: none;
-			height: 100px;
-			width: 30px;
-			background-color: blue;
-			left: 10px;
-			border: 2px;
-			border-left: 20px;
-		}
-
-		.block{
-			color: white;
-			background-color: red;
-			border: none;
-			height: 100px;
-			width: 30px;
-			background-color: blue;
+			/*font-size:1.2em; *//*字体大小变大1.2倍*/
 		}
 	</style>
 </head>
@@ -58,26 +38,26 @@
 		<button id="right-out" name="right-out">右侧出</button>	
 	</div>
 	<div id="show">
-		<input type="text" id="block1" value="12" ="" disabled>
+
 	</div>
 	
 
 	<script type="text/javascript">
 
-		function showStyle() { //调样式中，未完成
-			var node = document.getElementById("block1");
-			console.log(node);
-			console.log(node.style);
-			console.log(node.style.height + "~~" + node.value);
-			node.style.height = node.value;
-			console.log("1");
-			console.log(node.style.height + "~~" + node.value);
+		// function showStyle() { //调样式中，未完成
+		// 	var node = document.getElementById("block1");
+		// 	console.log(node);
+		// 	console.log(node.style);
+		// 	console.log(node.style.height + "~~" + node.value);
+		// 	node.style.height = node.value;
+		// 	console.log("1");
+		// 	console.log(node.style.height + "~~" + node.value);
 
-			var atr=document.createAttribute("class");
-			atr.nodeValue="democlass";
-			var h=document.getElementsByTagName("H1")[0];
-			h.setAttributeNode(atr); 
-		}
+		// 	var atr=document.createAttribute("class");
+		// 	atr.nodeValue="democlass";
+		// 	var h=document.getElementsByTagName("H1")[0];
+		// 	h.setAttributeNode(atr); 
+		// }
 
 		function operateIn(dir){ //入操作
 			var data = document.getElementById("data");
