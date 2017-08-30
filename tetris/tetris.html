@@ -10,7 +10,7 @@
 		}
 		.control_panel{
 			width:150px;
-			height:700px;
+			height:600px;
 			/*background-color:red;*/
 			border: 2px solid red;
 		}
@@ -19,20 +19,18 @@
 		#canvas1{
 			position: absolute;
 			left: 150;
-			width:450px;
-			height:700px;
-			/*background-color:blue;*/
-			border: 2px solid blue;
+			/*width:450;
+			height:700;
+			border: 2px solid blue;*/
 			z-index: 1;
 		}
-		/*canvas2在后面*/
+		/*canvas2在后面,作为背景*/
 		#canvas2{
 			position: absolute;
 			left: 150;
-			width:450px;
+			/*width:450px;
 			height:700px;
-			/*background-color:blue;*/
-			border: 2px solid blue;
+			border: 2px solid blue;*/
 			z-index: 0;
 		}
 		
@@ -42,11 +40,12 @@
 	<div class="game">
 		<div class="control_panel"></div>
 		<div class="all_canvas">
-			<canvas id="canvas1"></canvas>
-			<canvas id="canvas2"></canvas>
+			<canvas id="canvas1" width="360" height="600" style="border:2px solid blue;"></canvas>
+			<canvas id="canvas2"  width="360" height="600" style="border:2px solid blue;"></canvas>
 		</div>
 		
 	</div>
+	<script  src = "js/shape.js"></script>
 	<script  src = "js/background.js"></script>
 	<script  src = "js/commonFunctions.js"></script>
 	<script  src = "js/main.js"></script>
